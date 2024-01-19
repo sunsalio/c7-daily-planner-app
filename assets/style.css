@@ -21,6 +21,9 @@ header {
   border-bottom: 10px solid black;
   padding: 60px;
 }
+#currentDay {
+  margin-top: 50px;
+}
 
 .description {
   white-space: pre-wrap;

@@ -1,4 +1,9 @@
 $(document).ready(function() {
+
+  // display current date
+  const currentDay = dayjs().format('dddd, MMMM D');
+  document.getElementById('currentDay').innerText = currentDay;
+
     // Function to generate time blocks
     function generateTimeBlocks() {
       const container = $("#timeBlocks");
@@ -20,7 +25,7 @@ $(document).ready(function() {
           textArea.addClass("past");
         }
   
-        // Append the hour, textarea, and save button to the container
+        // Appends the hour, textarea, and save button to the container
         container.append(
           $("<div>").addClass("time-block").append(
             $("<div>").addClass("hour").text(moment().hour(hour).format("h A")),
