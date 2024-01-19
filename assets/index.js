@@ -35,6 +35,11 @@ $(document).ready(function() {
           )
         );
 
+        const savedEvent = getSavedEvent(hour);
+        if (savedEvent) {
+          textArea.val(savedEvent.eventDescription);
+        }
+
         // Event listener for save button clicked
         saveBtn.on('click', function() {
           const eventDescription = textArea.val();
@@ -53,12 +58,27 @@ $(document).ready(function() {
     function saveEvent(hour, eventDescription) {
       // Retrieve existing events from local storage or initialize an empty array
       const existingEvents = JSON.parse(localStorage.getItem("events")) || [];
-  
+
+      const index = existingEvents.findIndex(event => event.hour === hour);
+
+      if (index !== -1) {
+        existingEvents[index].eventDescription = eventDescription;
+      } else {
       // Add the new event to the array
       existingEvents.push({ hour, eventDescription });
+      }
   
       // Save the updated array back to local storage
       localStorage.setItem("events", JSON.stringify(existingEvents));
+    }
+     // Function to retrieve saved event from local storage
+    function getSavedEvent(hour) {
+     // Retrieve existing events from local storage
+     const existingEvents = JSON.parse(localStorage.getItem("events")) || [];
+
+    // Find the event with the specified hour
+   
+    return existingEvents.find(event => event.hour === hour);
     }
   });
   

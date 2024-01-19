@@ -40,10 +40,12 @@ header {
   justify-content: space-between;
   border: 1px solid #ccc;
   padding: 10px;
+  height: 100px;
    
 }
 textarea {
   width: 75%;
+  height: 80%;
 }
 
 .row {
