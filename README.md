@@ -7,6 +7,8 @@ This Work Day Planner is a dynamic web application that assists users in organiz
 
 ![Alt text](./images/screenshot.png)
 
+link to deployed application: https://sunsalio.github.io/c7-daily-planner-app/
+
 ## Usage
 1. Open the Work Day Planner in your web browser.
 2. Scroll down to view timeblocks for standard business hours.
