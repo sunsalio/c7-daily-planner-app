@@ -39,6 +39,8 @@ $(document).ready(function() {
         saveBtn.on('click', function() {
           const eventDescription = textArea.val();
           // Save the event description as needed
+          saveEvent(hour, eventDescription);
+
           console.log(`Event for ${moment().hour(hour).format("h A")} - ${eventDescription} saved!`);
         });
   
@@ -47,5 +49,16 @@ $(document).ready(function() {
   
     // Initial generation of time blocks
     generateTimeBlocks();
+
+    function saveEvent(hour, eventDescription) {
+      // Retrieve existing events from local storage or initialize an empty array
+      const existingEvents = JSON.parse(localStorage.getItem("events")) || [];
+  
+      // Add the new event to the array
+      existingEvents.push({ hour, eventDescription });
+  
+      // Save the updated array back to local storage
+      localStorage.setItem("events", JSON.stringify(existingEvents));
+    }
   });
   
